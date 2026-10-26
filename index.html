@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DeepMart is a gated B2B sourcing marketplace for verified hardware retailers and repair workshops." />
+  <title>DeepMart | Verified Hardware Sourcing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#FF6A00',
+            'brand-dark': '#E65300',
+            ink: '#17212B',
+            slate: '#26333E',
+            mist: '#F6F7F8'
+          },
+          boxShadow: {
+            soft: '0 18px 50px rgba(23, 33, 43, .10)',
+            orange: '0 12px 30px rgba(255, 106, 0, .22)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .hero-grid { background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px); background-size: 44px 44px; }
+    .hero-glow { background: radial-gradient(circle at 72% 32%, rgba(255,106,0,.23), transparent 29%), radial-gradient(circle at 12% 80%, rgba(48,84,105,.38), transparent 35%); }
+    .blurred-product { filter: blur(8px) saturate(.72); transform: scale(1.08); }
+    .modal-backdrop { background: rgba(8, 15, 22, .72); backdrop-filter: blur(8px); }
+    .modal-enter { animation: modalIn .22s ease-out both; }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .node-line { background: linear-gradient(90deg, transparent, rgba(255,106,0,.5), transparent); }
+    .check { width: 1.3rem; height: 1.3rem; flex: 0 0 auto; }
+  </style>
+</head>
+<body class="bg-white text-ink antialiased">
+  <!-- Navigation -->
+  <header class="absolute inset-x-0 top-0 z-30">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8" aria-label="Primary navigation">
+      <a href="#top" class="flex items-center gap-3 text-white" aria-label="DeepMart home">
+        <span class="relative grid h-9 w-9 place-items-center rounded-xl border border-orange-300/40 bg-white/10 shadow-lg">
+          <span class="absolute h-4 w-4 rotate-45 rounded-[3px] border-2 border-brand"></span><span class="absolute h-1.5 w-1.5 rounded-full bg-brand"></span>
+        </span>
+        <span class="text-xl font-extrabold tracking-tight">Deep<span class="text-brand">Mart</span></span>
+      </a>
+      <div class="hidden items-center gap-7 text-sm font-semibold text-white/95 lg:flex">
+        <a class="transition hover:text-brand" href="#why">Why DeepMart</a>
+        <a class="transition hover:text-brand" href="#verticals">Product Verticals</a>
+        <a class="transition hover:text-brand" href="#mechanics">Supply Chain Mechanics</a>
+        <a class="transition hover:text-brand" href="#standards">Verification Rules</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="languageToggle" type="button" class="rounded-lg border border-white/25 bg-white/10 px-3 py-2.5 text-xs font-bold text-white transition hover:bg-white/20" aria-label="Switch to Bengali">বাংলা</button>
+        <button data-open-modal class="rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-white shadow-orange transition hover:bg-brand-dark focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-slate">Request Access Panel</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-slate text-white">
+      <div class="hero-grid hero-glow absolute inset-0 opacity-80"></div>
+      <div class="relative mx-auto grid max-w-7xl items-center gap-16 px-6 pb-24 pt-36 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:pb-28 lg:pt-48">
+        <div>
+          <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[.16em] text-orange-200"><span class="h-2 w-2 rounded-full bg-brand shadow-[0_0_12px_#ff6a00]"></span> Trade network · invite only</div>
+          <h1 class="max-w-3xl text-4xl font-black leading-[1.04] tracking-tight sm:text-5xl lg:text-[4.2rem]">The Closed-Loop Sourcing Marketplace for <span class="text-brand">Verified Hardware Retailers.</span></h1>
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300">Bypass regional middlemen. Connect your procurement pipeline directly to Tier-1 national importers. Secure authentic branded gadgets, components, and high-wear mechanical accessories at true trade volume prices with guaranteed 24-hour counter delivery.</p>
+          <div class="mt-9 flex max-w-xl flex-col gap-3 rounded-2xl border border-white/10 bg-white/[.07] p-3 shadow-2xl backdrop-blur sm:flex-row">
+            <input id="heroPhone" type="tel" placeholder="Enter Business WhatsApp Number" class="min-h-14 flex-1 rounded-xl border border-white/10 bg-white px-4 text-sm text-ink outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-brand" />
+            <button data-open-modal data-from-hero class="min-h-14 rounded-xl bg-brand px-6 text-sm font-extrabold text-white shadow-orange transition hover:bg-brand-dark sm:whitespace-nowrap">Apply for Gated Access <span class="ml-1">→</span></button>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-x-7 gap-y-3 text-xs font-semibold text-slate-300"><span>⌾ Closed Network: Strict Trade Verification Required</span><span>⚡ 24-Hour Regional Fulfillment Hubs</span></div>
+        </div>
+        <div class="relative hidden min-h-[390px] lg:block">
+          <div class="absolute right-0 top-4 w-[85%] rounded-3xl border border-white/10 bg-white/[.08] p-5 shadow-2xl backdrop-blur-xl">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4"><div><p class="text-xs uppercase tracking-[.18em] text-slate-400">DeepMart network</p><p class="mt-1 text-lg font-bold">Procurement control panel</p></div><span class="rounded-lg bg-emerald-400/10 px-2.5 py-1 text-[11px] font-bold text-emerald-300">VERIFIED ONLY</span></div>
+            <div class="mt-6 grid grid-cols-2 gap-3"><div class="rounded-2xl bg-black/20 p-4"><p class="text-xs text-slate-400">Active hubs</p><p class="mt-2 text-3xl font-black">07</p><p class="mt-1 text-xs text-emerald-300">+2 this quarter</p></div><div class="rounded-2xl bg-black/20 p-4"><p class="text-xs text-slate-400">Avg. delivery</p><p class="mt-2 text-3xl font-black">24h</p><p class="mt-1 text-xs text-orange-300">Counter-ready</p></div></div>
+            <div class="mt-4 rounded-2xl bg-brand p-4 text-white"><div class="flex items-center justify-between"><span class="text-sm font-bold">Wholesale lane secured</span><span class="text-lg">↗</span></div><div class="mt-5 h-2 rounded-full bg-white/25"><div class="h-2 w-[82%] rounded-full bg-white"></div></div><p class="mt-2 text-xs text-orange-100">Demand aggregation is working in your favor.</p></div>
+          </div>
+          <div class="absolute bottom-1 left-0 w-56 rounded-2xl border border-white/10 bg-[#1b2934] p-4 shadow-xl"><div class="mb-3 flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span><span class="text-xs font-bold text-slate-200">Supply line live</span></div><div class="space-y-2 text-xs text-slate-400"><div class="flex justify-between"><span>Dhaka importer</span><span class="text-white">Connected</span></div><div class="flex justify-between"><span>Trade profile</span><span class="text-brand">Gated</span></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section id="why" class="border-b border-slate-100 bg-white"><div class="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-10 sm:grid-cols-4 lg:px-8"><div><p class="text-3xl font-black text-ink">15–20%</p><p class="mt-1 text-sm text-slate-500">middleman cost removed</p></div><div><p class="text-3xl font-black text-ink">5–7%</p><p class="mt-1 text-sm text-slate-500">below Dhaka retail rates</p></div><div><p class="text-3xl font-black text-ink">24 hrs</p><p class="mt-1 text-sm text-slate-500">regional counter delivery</p></div><div><p class="text-3xl font-black text-ink">100%</p><p class="mt-1 text-sm text-slate-500">merchant-first network</p></div></div></section>
+
+    <!-- Mechanics -->
+    <section id="mechanics" class="bg-mist py-24"><div class="mx-auto max-w-7xl px-6 lg:px-8"><div class="max-w-2xl"><p class="text-sm font-bold uppercase tracking-[.18em] text-brand">The mechanics</p><h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">We compress the supply chain. You keep the margin.</h2><p class="mt-5 text-lg leading-8 text-slate-600">DeepMart turns fragmented retailer demand into one credible buying signal for national importers.</p></div><div class="mt-12 grid gap-5 lg:grid-cols-3"><article class="relative rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><span class="text-sm font-black text-slate-400">01 / STATUS QUO</span><h3 class="mt-5 text-xl font-extrabold">The Fragmented Status Quo</h3><p class="mt-4 leading-7 text-slate-600">Traveling agents and regional syndicates inflate stock costs by <strong class="text-ink">15–20%</strong> while adding uncertainty and shipment delays.</p><div class="mt-8 h-1 rounded bg-slate-200"><div class="h-1 w-2/3 rounded bg-slate-400"></div></div></article><article class="relative rounded-2xl border-2 border-brand bg-slate p-7 text-white shadow-orange"><span class="text-sm font-black text-orange-300">02 / THE WEDGE</span><h3 class="mt-5 text-xl font-extrabold">The DeepMart Wedge</h3><p class="mt-4 leading-7 text-slate-300">We aggregate division-wide retail demand to negotiate direct cash-volume discounts from master Dhaka importers in Nawabpur and Bongshal.</p><div class="mt-8 h-1 rounded bg-white/15"><div class="h-1 w-4/5 rounded bg-brand"></div></div></article><article class="relative rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><span class="text-sm font-black text-brand">03 / YOUR ADVANTAGE</span><h3 class="mt-5 text-xl font-extrabold">The Retailer Advantage</h3><p class="mt-4 leading-7 text-slate-600">Onboarded partners buy inventory <strong class="text-ink">5–7% cheaper</strong> than Dhaka retail rates—with zero personal travel or transit liabilities.</p><div class="mt-8 h-1 rounded bg-slate-200"><div class="h-1 w-full rounded bg-brand"></div></div></article></div></div></section>
+
+    <!-- Product verticals -->
+    <section id="verticals" class="bg-slate py-24 text-white"><div class="mx-auto max-w-7xl px-6 lg:px-8"><div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p class="text-sm font-bold uppercase tracking-[.18em] text-orange-300">Trade-only verticals</p><h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">The hardware your counter moves every day.</h2></div><p class="max-w-sm text-sm leading-6 text-slate-300">Product intelligence and pricing unlock after your merchant profile is approved.</p></div><div class="mt-12 grid gap-6 lg:grid-cols-3"><article class="overflow-hidden rounded-2xl border border-white/10 bg-white/[.06]"><div class="relative h-56 overflow-hidden bg-gradient-to-br from-blue-900 to-slate-700"><div class="blurred-product absolute inset-0 flex items-center justify-center text-[100px]">⌁ ◇ ⌁</div><div class="absolute inset-0 bg-slate/40"></div><div class="absolute inset-x-4 bottom-4 rounded-xl border border-white/15 bg-slate/75 p-3 text-center text-xs font-extrabold text-white backdrop-blur">🔒 Prices Hidden — Verify Trade Account to Uncover</div></div><div class="p-6"><div class="mb-4 flex items-center justify-between"><span class="rounded-full bg-brand/15 px-3 py-1 text-xs font-bold text-orange-300">01</span><span class="text-xs text-slate-400">Fast-moving</span></div><h3 class="text-xl font-extrabold">Mobile Components & Accessories</h3><p class="mt-3 text-sm leading-6 text-slate-300">Premium fast chargers, display glass, TWS audio, and flex ribbons from Hoco, Baseus, Remax, and Joyroom.</p></div></article><article class="overflow-hidden rounded-2xl border border-white/10 bg-white/[.06]"><div class="relative h-56 overflow-hidden bg-gradient-to-br from-orange-950 to-slate-700"><div class="blurred-product absolute inset-0 flex items-center justify-center text-[95px]">⚙︎ ⛓ ⚙︎</div><div class="absolute inset-0 bg-slate/40"></div><div class="absolute inset-x-4 bottom-4 rounded-xl border border-white/15 bg-slate/75 p-3 text-center text-xs font-extrabold text-white backdrop-blur">🔒 Prices Hidden — Verify Trade Account to Uncover</div></div><div class="p-6"><div class="mb-4 flex items-center justify-between"><span class="rounded-full bg-brand/15 px-3 py-1 text-xs font-bold text-orange-300">02</span><span class="text-xs text-slate-400">High-wear</span></div><h3 class="text-xl font-extrabold">Motorcycle Maintenance Parts</h3><p class="mt-3 text-sm leading-6 text-slate-300">Brake shoes, control cables, spark plugs, 12V smart batteries, and modified CNC alloy handlebar mounts.</p></div></article><article class="overflow-hidden rounded-2xl border border-white/10 bg-white/[.06]"><div class="relative h-56 overflow-hidden bg-gradient-to-br from-emerald-950 to-slate-700"><div class="blurred-product absolute inset-0 flex items-center justify-center text-[95px]">◉ ⌁ ◉</div><div class="absolute inset-0 bg-slate/40"></div><div class="absolute inset-x-4 bottom-4 rounded-xl border border-white/15 bg-slate/75 p-3 text-center text-xs font-extrabold text-white backdrop-blur">🔒 Prices Hidden — Verify Trade Account to Uncover</div></div><div class="p-6"><div class="mb-4 flex items-center justify-between"><span class="rounded-full bg-brand/15 px-3 py-1 text-xs font-bold text-orange-300">03</span><span class="text-xs text-slate-400">Core hardware</span></div><h3 class="text-xl font-extrabold">Smart Electrical Hardware</h3><p class="mt-3 text-sm leading-6 text-slate-300">LED modular switches, smart circuit breakers, and core copper wiring bundles for modern electrical counters.</p></div></article></div></div></section>
+
+    <!-- Standards -->
+    <section id="standards" class="py-24"><div class="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[.18em] text-brand">Trust by design</p><h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Preserving Wholesaler Integrity: Our Vetting Standards</h2><p class="mt-6 leading-8 text-slate-600">Consumers are intentionally locked out. Keeping this a verified merchant ecosystem protects retail margins, improves demand forecasting, and lets importers offer better terms.</p><button data-open-modal class="mt-8 inline-flex items-center gap-2 font-bold text-brand hover:text-brand-dark">Start a trade profile <span>→</span></button></div><div class="rounded-3xl bg-mist p-7 sm:p-10"><p class="text-xs font-black uppercase tracking-[.18em] text-slate-500">Activation requirements</p><div class="mt-7 space-y-6"><div class="flex gap-4"><svg class="check text-brand" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 12 4 4L19 6"/></svg><div><h3 class="font-extrabold">Valid trade license validation</h3><p class="mt-1 text-sm leading-6 text-slate-600">Confirm your business is active and operating in a recognized retail category.</p></div></div><div class="flex gap-4"><svg class="check text-brand" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 12 4 4L19 6"/></svg><div><h3 class="font-extrabold">Physical storefront verification</h3><p class="mt-1 text-sm leading-6 text-slate-600">Share storefront photography or equivalent proof of an established counter.</p></div></div><div class="flex gap-4"><svg class="check text-brand" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 12 4 4L19 6"/></svg><div><h3 class="font-extrabold">Verified trade references</h3><p class="mt-1 text-sm leading-6 text-slate-600">Our team may request references from current suppliers before activation.</p></div></div></div></div></div></section>
+
+    <!-- DeepSuite -->
+    <section class="px-6 pb-24 lg:px-8"><div class="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-brand px-7 py-12 text-white shadow-orange sm:px-12 lg:flex lg:items-center lg:justify-between lg:py-14"><div class="max-w-2xl"><p class="text-sm font-bold uppercase tracking-[.18em] text-orange-100">Powered by DeepSuite</p><h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Includes Free DeepSuite POS Core Upgrade.</h2><p class="mt-5 max-w-2xl leading-7 text-orange-50">All verified DeepMart buyers receive complimentary activation of DeepSuite—our AI-native counter bookkeeping and omnichannel tracking ledger. Manage walk-in receipts, track offline shelf velocity, and unlock automated inventory financing options based entirely on your consistent procurement data.</p></div><div class="mt-9 shrink-0 lg:ml-12 lg:mt-0"><button data-open-modal class="rounded-xl bg-white px-6 py-3.5 text-sm font-extrabold text-brand transition hover:bg-orange-50">Unlock the ecosystem <span class="ml-1">→</span></button></div></div></section>
+
+    <!-- Footer CTA -->
+    <section class="border-t border-slate-100 bg-mist"><div class="mx-auto max-w-7xl px-6 py-24 text-center lg:px-8"><p class="text-sm font-bold uppercase tracking-[.18em] text-brand">Your next buying lane</p><h2 class="mx-auto mt-4 max-w-3xl text-4xl font-black tracking-tight text-ink sm:text-5xl">Stop Buying From Middlemen. Protect Your Store Margins Today.</h2><button data-open-modal class="mt-9 rounded-xl bg-brand px-8 py-4 text-base font-extrabold text-white shadow-orange transition hover:bg-brand-dark">Request Gated Trader Profile <span class="ml-2">→</span></button></div><footer class="border-t border-slate-200"><div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-7 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8"><div class="font-bold text-ink">Deep<span class="text-brand">Mart</span><span class="ml-2 font-normal text-slate-400">© 2025 DeepMart Network</span></div><div class="flex flex-wrap gap-x-5 gap-y-2"><a href="#standards" class="hover:text-brand">Trade Policy</a><a href="#standards" class="hover:text-brand">Verification Rules</a><a href="mailto:hello@deepmart.app" class="hover:text-brand">hello@deepmart.app</a></div></div></footer></section>
+  </main>
+
+  <!-- Gated access modal -->
+  <div id="accessModal" class="modal-backdrop fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-enter relative my-8 w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
+      <button id="closeModal" class="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-xl text-slate-500 transition hover:bg-slate-200 hover:text-ink" aria-label="Close access form">×</button>
+      <div id="formView"><div class="mb-7 pr-8"><div class="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-orange-50 text-xl text-brand">⌁</div><p class="text-xs font-black uppercase tracking-[.18em] text-brand">Private trade network</p><h2 id="modalTitle" class="mt-2 text-2xl font-black tracking-tight">Request your gated access panel</h2><p class="mt-2 text-sm leading-6 text-slate-500">Tell us where you trade. Our vetting team will confirm the right buying lane for your business.</p></div><form id="accessForm" class="space-y-4"><div class="grid gap-4 sm:grid-cols-2"><label class="block"><span class="mb-1.5 block text-xs font-bold text-slate-600">Full Name</span><input required name="fullName" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-orange-100" placeholder="Your name" /></label><label class="block"><span class="mb-1.5 block text-xs font-bold text-slate-600">Business / Shop Name</span><input required name="business" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-orange-100" placeholder="Registered business name" /></label></div><label class="block"><span class="mb-1.5 block text-xs font-bold text-slate-600">Phone Number (WhatsApp)</span><input id="modalPhone" required type="tel" name="phone" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-orange-100" placeholder="e.g. +880 1XXX XXX XXX" /></label><label class="block"><span class="mb-1.5 block text-xs font-bold text-slate-600">City / Region</span><input required name="region" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-orange-100" placeholder="Where is your counter located?" /></label><label class="block"><span class="mb-1.5 block text-xs font-bold text-slate-600">Primary Category</span><select required name="category" class="w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-orange-100"><option value="" disabled selected>Select your trade vertical</option><option>Mobile Accessories</option><option>Motorcycle Components</option><option>Smart Electrical</option></select></label><button class="mt-2 w-full rounded-xl bg-brand py-3.5 text-sm font-extrabold text-white shadow-orange transition hover:bg-brand-dark" type="submit">Submit Trade Access Request <span class="ml-1">→</span></button><p class="text-center text-[11px] leading-5 text-slate-400">By submitting, you agree to a verification callback via WhatsApp. Your details remain private to the DeepMart vetting team.</p></form></div>
+      <div id="successView" class="hidden py-8 text-center"><div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-50 text-3xl text-emerald-600">✓</div><p class="mt-6 text-xs font-black uppercase tracking-[.18em] text-emerald-600">Request received</p><h2 class="mt-2 text-2xl font-black tracking-tight">Your trade profile is in review.</h2><p class="mx-auto mt-4 max-w-sm text-sm leading-7 text-slate-600">Access Request Received. Our vetting team will review your trade profile and contact you via WhatsApp within 12–24 hours to authorize your secure DeepMart credentials.</p><button id="doneButton" class="mt-7 rounded-xl bg-slate px-7 py-3.5 text-sm font-extrabold text-white transition hover:bg-ink">Done</button></div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('accessModal');
+    const form = document.getElementById('accessForm');
+    const formView = document.getElementById('formView');
+    const successView = document.getElementById('successView');
+    const modalPhone = document.getElementById('modalPhone');
+    const heroPhone = document.getElementById('heroPhone');
+    const languageToggle = document.getElementById('languageToggle');
+    let currentLanguage = 'en';
+
+    function openModal() { modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.classList.add('overflow-hidden'); setTimeout(() => modal.querySelector('input')?.focus(), 50); }
+    function closeModal() { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.classList.remove('overflow-hidden'); }
+    document.querySelectorAll('[data-open-modal]').forEach(button => button.addEventListener('click', () => { if (button.hasAttribute('data-from-hero') && heroPhone.value) modalPhone.value = heroPhone.value; openModal(); }));
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    document.getElementById('doneButton').addEventListener('click', closeModal);
+    modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+
+    // Standalone pages cannot send email directly from a browser. This creates a
+    // pre-addressed email request in the visitor's mail client as a dependable fallback.
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const subject = `DeepMart Trade Access Request - ${data.business}`;
+      const body = `New DeepMart trade access request\n\nFull Name: ${data.fullName}\nBusiness / Shop: ${data.business}\nWhatsApp: ${data.phone}\nCity / Region: ${data.region}\nCategory: ${data.category}\n\nPlease review this merchant profile and contact them via WhatsApp.`;
+      window.location.href = `mailto:deepsuite360@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      formView.classList.add('hidden');
+      successView.classList.remove('hidden');
+    });
+
+    const translations = {
+      'navWhy': ['Why DeepMart', 'কেন DeepMart'],
+      'navProducts': ['Product Verticals', 'পণ্য বিভাগসমূহ'],
+      'navMechanics': ['Supply Chain Mechanics', 'সাপ্লাই চেইন ব্যবস্থা'],
+      'navRules': ['Verification Rules', 'যাচাইয়ের নিয়ম'],
+      'navCta': ['Request Access Panel', 'অ্যাক্সেসের জন্য আবেদন করুন'],
+      'heroTitle': ['The Closed-Loop Sourcing Marketplace for Verified Hardware Retailers.', 'যাচাইকৃত হার্ডওয়্যার খুচরা বিক্রেতাদের জন্য সম্পূর্ণ নিয়ন্ত্রিত সোর্সিং মার্কেটপ্লেস।'],
+      'heroCopy': ['Bypass regional middlemen. Connect your procurement pipeline directly to Tier-1 national importers. Secure authentic branded gadgets, components, and high-wear mechanical accessories at true trade volume prices with guaranteed 24-hour counter delivery.', 'আঞ্চলিক মধ্যস্বত্বভোগীদের বাদ দিন। আপনার ক্রয় প্রক্রিয়াকে সরাসরি শীর্ষস্থানীয় জাতীয় আমদানিকারকদের সঙ্গে যুক্ত করুন। প্রকৃত ট্রেড ভলিউম মূল্যে আসল ব্র্যান্ডের গ্যাজেট, কম্পোনেন্ট ও উচ্চ-ব্যবহারের যন্ত্রাংশ সংগ্রহ করুন—২৪ ঘণ্টার কাউন্টার ডেলিভারির নিশ্চয়তাসহ।'],
+      'heroCta': ['Apply for Gated Access', 'গেটেড অ্যাক্সেসের জন্য আবেদন করুন'],
+      'heroTrust': ['⌾ Closed Network: Strict Trade Verification Required', '⌾ বন্ধ নেটওয়ার্ক: কঠোর ট্রেড যাচাই প্রয়োজন'],
+      'heroDelivery': ['⚡ 24-Hour Regional Fulfillment Hubs', '⚡ ২৪ ঘণ্টার আঞ্চলিক ফুলফিলমেন্ট হাব'],
+      'mechanicsTitle': ['We compress the supply chain. You keep the margin.', 'আমরা সাপ্লাই চেইন সংক্ষিপ্ত করি। আপনার মার্জিন আপনার কাছেই থাকে।'],
+      'verticalTitle': ['The hardware your counter moves every day.', 'প্রতিদিন আপনার কাউন্টারে বিক্রি হওয়া হার্ডওয়্যার।'],
+      'standardsTitle': ['Preserving Wholesaler Integrity: Our Vetting Standards', 'পাইকারি ব্যবসার সততা রক্ষা: আমাদের যাচাইয়ের মানদণ্ড'],
+      'suiteTitle': ['Includes Free DeepSuite POS Core Upgrade.', 'বিনামূল্যে DeepSuite POS Core আপগ্রেডসহ।'],
+      'footerTitle': ['Stop Buying From Middlemen. Protect Your Store Margins Today.', 'মধ্যস্বত্বভোগীদের কাছ থেকে কেনা বন্ধ করুন। আজই আপনার দোকানের মার্জিন রক্ষা করুন।'],
+      'modalTitle': ['Request your gated access panel', 'আপনার গেটেড অ্যাক্সেস প্যানেলের জন্য আবেদন করুন'],
+      'modalCopy': ['Tell us where you trade. Our vetting team will confirm the right buying lane for your business.', 'আপনি কোথায় ব্যবসা করেন তা জানান। আমাদের যাচাই টিম আপনার ব্যবসার জন্য সঠিক ক্রয় চ্যানেল নিশ্চিত করবে.'],
+      'submit': ['Submit Trade Access Request', 'ট্রেড অ্যাক্সেসের আবেদন জমা দিন'],
+      'done': ['Done', 'সম্পন্ন'],
+      'successTitle': ['Your trade profile is in review.', 'আপনার ট্রেড প্রোফাইল পর্যালোচনাধীন।']
+    };
+    const textTargets = {
+      navWhy: 'header nav div a:nth-child(1)', navProducts: 'header nav div a:nth-child(2)', navMechanics: 'header nav div a:nth-child(3)', navRules: 'header nav div a:nth-child(4)', navCta: 'header nav button[data-open-modal]', heroTitle: 'h1', heroCopy: 'h1 + p', heroCta: '[data-from-hero]', heroTrust: '.mt-5.flex.flex-wrap span:nth-child(1)', heroDelivery: '.mt-5.flex.flex-wrap span:nth-child(2)', mechanicsTitle: '#mechanics h2', verticalTitle: '#verticals h2', standardsTitle: '#standards h2', suiteTitle: 'div.bg-brand h2', footerTitle: 'section.bg-mist h2', modalTitle: '#modalTitle', modalCopy: '#modalTitle + p', submit: '#accessForm button[type="submit"]', done: '#doneButton', successTitle: '#successView h2'
+    };
+    function applyLanguage(language) {
+      currentLanguage = language;
+      document.documentElement.lang = language === 'bn' ? 'bn' : 'en';
+      Object.entries(textTargets).forEach(([key, selector]) => { const element = document.querySelector(selector); if (element) element.textContent = translations[key][language === 'bn' ? 1 : 0]; });
+      languageToggle.textContent = language === 'bn' ? 'English' : 'বাংলা';
+      languageToggle.setAttribute('aria-label', language === 'bn' ? 'Switch to English' : 'বাংলায় পরিবর্তন করুন');
+      document.querySelector('#heroPhone').placeholder = language === 'bn' ? 'ব্যবসার WhatsApp নম্বর লিখুন' : 'Enter Business WhatsApp Number';
+      document.querySelector('#modalPhone').placeholder = language === 'bn' ? 'যেমন: +880 1XXX XXX XXX' : 'e.g. +880 1XXX XXX XXX';
+      const labels = language === 'bn' ? ['পুরো নাম', 'ব্যবসা / দোকানের নাম', 'ফোন নম্বর (WhatsApp)', 'শহর / অঞ্চল', 'প্রধান বিভাগ'] : ['Full Name', 'Business / Shop Name', 'Phone Number (WhatsApp)', 'City / Region', 'Primary Category'];
+      document.querySelectorAll('#accessForm label > span').forEach((label, index) => { if (labels[index]) label.textContent = labels[index]; });
+      const options = language === 'bn' ? ['আপনার ট্রেডের বিভাগ নির্বাচন করুন', 'মোবাইল অ্যাক্সেসরিজ', 'মোটরসাইকেল কম্পোনেন্ট', 'স্মার্ট ইলেকট্রিক্যাল'] : ['Select your trade vertical', 'Mobile Accessories', 'Motorcycle Components', 'Smart Electrical'];
+      document.querySelectorAll('#accessForm select option').forEach((option, index) => { if (options[index]) option.textContent = options[index]; });
+    }
+    languageToggle.addEventListener('click', () => applyLanguage(currentLanguage === 'en' ? 'bn' : 'en'));
+  </script>
+</body>
+</html>
